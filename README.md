@@ -4,7 +4,7 @@ Use C++ APIs in Swift -- and Swift APIs in C++ -- in a single framework target, 
 
 ## Overview
 
-- Note: This sample code project is associated with WWDC 2023 session 8229: [Mix Swift and C++](https://developer.apple.com/wwdc2023/8229).
+- Note: This sample code project is associated with WWDC 2023 session 10172: [Mix Swift and C++](https://developer.apple.com/wwdc23/10172).
 
 ## Configure the sample code project
 

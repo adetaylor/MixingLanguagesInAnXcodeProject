@@ -1,4 +1,4 @@
-# Mixing Swift and C++ in an Xcode project
+# Mixing Languages in an Xcode project
 
 Use C++ APIs in Swift -- and Swift APIs in C++ -- in a single framework target, and consume the framework's APIs in a separate app target.
 

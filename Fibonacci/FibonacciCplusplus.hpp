@@ -7,6 +7,13 @@ The C++ API.
 
 #pragma once
 
+#include "one.h"
+#include "header.h"
+
+my_int test(void) {
+  return MY_MACRO;
+}
+
 class FibonacciCalculatorCplusplus {
 public:
     FibonacciCalculatorCplusplus(bool printInvocation);

@@ -349,6 +349,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_INCLUDE_PATHS = "Modules";
 			};
 			name = Debug;
 		};
@@ -406,6 +407,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_INCLUDE_PATHS = "Modules";
 			};
 			name = Release;
 		};

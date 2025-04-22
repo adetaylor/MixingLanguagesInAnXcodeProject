@@ -1,0 +1,11 @@
+module Submodules {
+module one {
+    header "one.h"
+    export *
+  }
+  module two {
+    header "two.h"
+    export *
+  }
+}
+

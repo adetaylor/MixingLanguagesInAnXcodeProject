@@ -7,6 +7,10 @@ The C++ API.
 
 #pragma once
 
+SOME_TYPE some_func() {
+    return 3;
+}
+
 class FibonacciCalculatorCplusplus {
 public:
     FibonacciCalculatorCplusplus(bool printInvocation);

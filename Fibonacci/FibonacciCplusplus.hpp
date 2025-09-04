@@ -7,6 +7,9 @@ The C++ API.
 
 #pragma once
 
+#include <span>
+#include <cstdint>
+
 class FibonacciCalculatorCplusplus {
 public:
     FibonacciCalculatorCplusplus(bool printInvocation);
@@ -14,3 +17,7 @@ public:
 private:
     bool printInvocation;
 };
+
+using UInt8Span = std::span<uint8_t>;
+
+UInt8Span getSomeData();

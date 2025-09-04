@@ -23,6 +23,10 @@ public struct FibonacciCalculator {
             return 1.0
         }
         
+        let spanny = getSomeData();
+        let sz = spanny.size();
+        print("Size is is ", sz);
+
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)

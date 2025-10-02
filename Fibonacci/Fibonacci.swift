@@ -27,4 +27,17 @@ public struct FibonacciCalculator {
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
     }
+
+    public func handleArray(arr: [CppRefCounted]) {
+        
+    }
+}
+
+func toWTFVectorAPIObject(list: [CppRefCounted]) -> CppContainer {
+    var vec = CppContainer();
+    vec.reserveCapacity(list.count);
+    for item in list {
+        vec.append(makeSomeSmartPtr(item));
+    }
+    return vec
 }

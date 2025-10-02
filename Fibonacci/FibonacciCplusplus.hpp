@@ -24,7 +24,7 @@ private:
 
 class CppRefCounted {
 public:
-    CppRefCounted* create(int p) __attribute__((swift_attr("returns_retained"))) { return new CppRefCounted(p); }
+    static CppRefCounted* create(int p) __attribute__((swift_attr("returns_retained"))) { return new CppRefCounted(p); }
 private:
     CppRefCounted(int p) : value(p), refCount(1) {}
     int value;
@@ -60,3 +60,5 @@ public:
     void reserveCapacity(size_t s) {}
     void append(SomeSmartPtr<CppRefCounted> item) {}
 };
+
+void printItems(CppContainer items);

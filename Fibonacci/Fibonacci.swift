@@ -28,7 +28,7 @@ public struct FibonacciCalculator {
         items.append(CppRefCounted.create(4));
         let cppVector = toWTFVectorAPIObject(list: items);
         printItems(cppVector);
-        
+
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)

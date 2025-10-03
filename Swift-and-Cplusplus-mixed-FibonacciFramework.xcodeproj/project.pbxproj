@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5CF24EB62E8ED95F009F166F /* FibonacciStuff.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5CF24EB52E8ED957009F166F /* FibonacciStuff.mm */; };
 		FACAB62129FAFCB10054D077 /* Swift_and_Cplusplus_mixed_FibonacciFrameworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAB62029FAFCB10054D077 /* Swift_and_Cplusplus_mixed_FibonacciFrameworkApp.swift */; };
 		FACAB62329FAFCB10054D077 /* FibonacciView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACAB62229FAFCB10054D077 /* FibonacciView.swift */; };
 		FACAB62529FAFCB20054D077 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACAB62429FAFCB20054D077 /* Assets.xcassets */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		18D3FB5E333BF2E98FD82B4E /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
-		5CF24EB52E8ED957009F166F /* FibonacciStuff.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FibonacciStuff.mm; sourceTree = "<group>"; };
 		88904A36A8944F4BE70653F4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F6BCCFAE033D8DD91C3493D /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		FACAB61D29FAFCB10054D077 /* Swift-and-Cplusplus-mixed-FibonacciFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift-and-Cplusplus-mixed-FibonacciFramework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,7 +139,6 @@
 		FACAB63529FAFD6C0054D077 /* Fibonacci */ = {
 			isa = PBXGroup;
 			children = (
-				5CF24EB52E8ED957009F166F /* FibonacciStuff.mm */,
 				FACAB63629FAFD6C0054D077 /* Fibonacci.h */,
 				FACAB64029FAFD960054D077 /* FibonacciCplusplus.cpp */,
 				FACAB64129FAFD960054D077 /* FibonacciCplusplus.hpp */,
@@ -276,7 +273,6 @@
 			files = (
 				FACAB64529FAFE100054D077 /* Fibonacci.swift in Sources */,
 				FACAB64229FAFD960054D077 /* FibonacciCplusplus.cpp in Sources */,
-				5CF24EB62E8ED95F009F166F /* FibonacciStuff.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ The C++ API.
 class FibonacciCalculatorCplusplus {
 public:
     FibonacciCalculatorCplusplus(bool printInvocation);
-    double fibonacci(double value) const;
+    double fibonacci(double value, int bonus=0) const;
 private:
     bool printInvocation;
 };

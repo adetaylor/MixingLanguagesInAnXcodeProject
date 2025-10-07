@@ -11,7 +11,7 @@ Implements the C++ API.
 
 FibonacciCalculatorCplusplus::FibonacciCalculatorCplusplus(bool printInvocation) : printInvocation(printInvocation) {}
 
-double FibonacciCalculatorCplusplus::fibonacci(double value) const {
+double FibonacciCalculatorCplusplus::fibonacci(double value, int bonus) const {
     // Print the value if applicable.
     if (printInvocation)
         std::cout << "[c++] fibonacci(" << value << ")\n";
@@ -22,5 +22,5 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
-    return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
+    return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0) + bonus;
 }

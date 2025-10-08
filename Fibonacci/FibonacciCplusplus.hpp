@@ -6,11 +6,13 @@ The C++ API.
 */
 
 #pragma once
+#include <optional>
 
 class FibonacciCalculatorCplusplus {
 public:
     FibonacciCalculatorCplusplus(bool printInvocation);
     double fibonacci(double value) const;
+    std::optional<double> meaningOfLife;
 private:
     bool printInvocation;
 };

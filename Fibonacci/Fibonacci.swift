@@ -5,7 +5,7 @@ Abstract:
 Implements the Swift API.
 */
 
-public struct FibonacciCalculator {
+public class FibonacciCalculator {
     private let printInvocation: Bool
     
     public init(printInvocation: Bool) {

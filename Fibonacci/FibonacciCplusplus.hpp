@@ -27,7 +27,7 @@ public:
 
 class WebBackForwardListItem {
 public:
-    static Ref<WebBackForwardListItem> create(BrowsingContextGroup* _Nullable bcg = nullptr) {
+    static Ref<WebBackForwardListItem> create(BrowsingContextGroup* _Nullable = nullptr) {
         Ref<WebBackForwardListItem> me;
         return me;
     }

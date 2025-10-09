@@ -17,8 +17,6 @@ private:
     bool printInvocation;
 };
 
-struct FrameState{};
-
 class BrowsingContextGroup {};
 
 template<typename T>
@@ -29,8 +27,7 @@ public:
 
 class WebBackForwardListItem {
 public:
-    static Ref<WebBackForwardListItem> create(Ref<FrameState>&&,
-                                              BrowsingContextGroup* _Nullable = nullptr) {
+    static Ref<WebBackForwardListItem> create(BrowsingContextGroup* _Nullable bcg = nullptr) {
         Ref<WebBackForwardListItem> me;
         return me;
     }
@@ -46,5 +43,3 @@ inline void derefBackForwardListItem(WebBackForwardListItem* _Nonnull obj)
 {
     
 }
-
-using RefFrameState = Ref<FrameState>;

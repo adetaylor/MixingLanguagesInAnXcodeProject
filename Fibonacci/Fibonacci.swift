@@ -23,8 +23,7 @@ public struct FibonacciCalculator {
             return 1.0
         }
         
-        let fs = RefFrameState();
-        let foo = WebBackForwardListItem.create(consuming: fs);
+        let foo = WebBackForwardListItem.create();
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)

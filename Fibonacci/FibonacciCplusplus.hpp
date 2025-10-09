@@ -33,7 +33,12 @@ public:
 
 class WebBackForwardListItem {
 public:
-    static Ref<WebBackForwardListItem> create(Ref<FrameState>&&, WebPageProxyIdentifier, std::optional<FrameIdentifier>, BrowsingContextGroup* _Nullable = nullptr);
+    static Ref<WebBackForwardListItem> create(Ref<FrameState>&&, WebPageProxyIdentifier,
+                                              std::optional<FrameIdentifier>,
+                                              BrowsingContextGroup* _Nullable = nullptr) {
+        Ref<WebBackForwardListItem> me;
+        return me;
+    }
 }  SWIFT_SHARED_REFERENCE(refBackForwardListItem, derefBackForwardListItem);
 
 

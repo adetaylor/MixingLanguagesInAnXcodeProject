@@ -19,10 +19,6 @@ private:
 
 struct FrameState{};
 
-struct WebPageProxyIdentifier{};
-
-struct FrameIdentifier {};
-
 class BrowsingContextGroup {};
 
 template<typename T>
@@ -33,8 +29,7 @@ public:
 
 class WebBackForwardListItem {
 public:
-    static Ref<WebBackForwardListItem> create(Ref<FrameState>&&, WebPageProxyIdentifier,
-                                              std::optional<FrameIdentifier>,
+    static Ref<WebBackForwardListItem> create(Ref<FrameState>&&,
                                               BrowsingContextGroup* _Nullable = nullptr) {
         Ref<WebBackForwardListItem> me;
         return me;

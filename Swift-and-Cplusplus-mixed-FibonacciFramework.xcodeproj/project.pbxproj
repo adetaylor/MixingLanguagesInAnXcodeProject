@@ -499,6 +499,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_SWIFT_FLAGS = "-strict-memory-safety -enable-experimental-feature Lifetimes -enable-experimental-feature LifetimeDependence";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Fibonacci${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -538,6 +539,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				OTHER_SWIFT_FLAGS = "-strict-memory-safety -enable-experimental-feature Lifetimes -enable-experimental-feature LifetimeDependence";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.Fibonacci${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

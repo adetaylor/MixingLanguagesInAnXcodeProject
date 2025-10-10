@@ -31,4 +31,9 @@ public struct FibonacciCalculator {
     public func runInputTest(test: consuming InputTest) {
         
     }
+    
+    
+    public func consumeNoncopyable(test: consuming Noncopyable) {
+        
+    }
 }

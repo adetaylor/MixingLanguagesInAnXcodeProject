@@ -60,3 +60,13 @@ using InputTest = Function<bool (SomeInput&)>;
 inline void callFunctionyThing(InputTest&& test) {
     
 }
+
+class Noncopyable {
+public:
+    Noncopyable(int a) : value(a) {}
+    Noncopyable(const Noncopyable&) = delete;
+    Noncopyable(Noncopyable&& other) {
+        
+    }
+    int value;
+};

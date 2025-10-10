@@ -22,5 +22,9 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
+
+    Noncopyable a(3);
+    swiftCalculator.consumeNoncopyable(std::move(a));
+
     return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
 }

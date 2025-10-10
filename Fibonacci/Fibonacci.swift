@@ -28,12 +28,7 @@ public struct FibonacciCalculator {
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
     }
 
-    public func runInputTest(test: consuming InputTest) {
-        
-    }
-    
-    
-    public func consumeNoncopyable(test: consuming Noncopyable) {
+    public func runInputTest(test: InputTestContainer) {
         
     }
 }

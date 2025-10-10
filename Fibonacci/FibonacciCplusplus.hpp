@@ -8,6 +8,7 @@ The C++ API.
 #pragma once
 #import <memory>
 #import <utility>
+#import <swift/bridging>
 
 class FibonacciCalculatorCplusplus {
 public:
@@ -43,7 +44,7 @@ public:
         : m_callableWrapper(makeUnique<CallableWrapper<FunctionType, Out, In...>>(std::forward<FunctionType>(f))) { }
 
 private:
-    Function(Impl* impl)
+    Function(Impl* _Nonnull impl)
         : m_callableWrapper(impl)
     {
     }
@@ -61,12 +62,33 @@ inline void callFunctionyThing(InputTest&& test) {
     
 }
 
-class Noncopyable {
+// Workaround for rdar://162361370
+// (storing a WTF::Function inside a copyable, in this case ref-counted, type)
+template<typename> class FunctionContainer;
+
+template <typename Out, typename... In>
+class FunctionContainer<Out(In...)>  {
 public:
-    Noncopyable(int a) : value(a) {}
-    Noncopyable(const Noncopyable&) = delete;
-    Noncopyable(Noncopyable&& other) {
-        
+    FunctionContainer(Function<Out(In...)>&& fn) : m_fn(fn) {}
+
+    Out call(In... in) const
+    {
+        return m_fn(std::forward<In>(in)...);
     }
-    int value;
-};
+
+private:
+    Function<Out(In...)> m_fn;
+} SWIFT_SHARED_REFERENCE(funcContainerRetain, funcContainerRelease);
+
+template <typename Out, typename... In>
+inline void funcContainerRetain(FunctionContainer<Out(In...)>* _Nonnull o) {
+    
+}
+
+template <typename Out, typename... In>
+inline void funcContainerRelease(FunctionContainer<Out(In...)>* _Nonnull o) {
+    
+}
+
+using InputTestContainer = FunctionContainer<bool (SomeInput&)>;
+

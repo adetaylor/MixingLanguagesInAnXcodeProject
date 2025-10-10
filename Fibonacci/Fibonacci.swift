@@ -5,6 +5,8 @@ Abstract:
 Implements the Swift API.
 */
 
+typealias RefPayload = Ref<Payload>;
+
 public struct FibonacciCalculator {
     private let printInvocation: Bool
     

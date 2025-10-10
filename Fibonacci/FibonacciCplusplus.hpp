@@ -14,3 +14,15 @@ public:
 private:
     bool printInvocation;
 };
+
+struct DefaultTraits;
+
+template<typename T, typename Traits=DefaultTraits>
+class Ref {
+public:
+    T* item;
+};
+
+struct Payload {
+    int val;
+};

@@ -23,8 +23,10 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
     
-    InputTestContainer test([] (SomeInput& item) { return true; });
-    swiftCalculator.runInputTest(test);
+//    auto f =
+//    Function<bool (SomeInput&)> f2();
+    InputTestContainer test(([](SomeInput&) -> bool { return true; }));
+    swiftCalculator.runInputTest(&test);
     
     return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
 }

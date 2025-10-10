@@ -8,7 +8,14 @@ The C++ API.
 #pragma once
 #import <memory>
 #import <utility>
-#import <swift/bridging>
+
+#define _CXX_INTEROP_STRINGIFY(_x) #_x
+
+#define SWIFT_SHARED_REFERENCE(_retain, _release)                                \
+  __attribute__((swift_attr("import_reference")))                          \
+  __attribute__((swift_attr(_CXX_INTEROP_STRINGIFY(retain:_retain))))      \
+  __attribute__((swift_attr(_CXX_INTEROP_STRINGIFY(release:_release))))
+
 
 class FibonacciCalculatorCplusplus {
 public:
@@ -38,10 +45,10 @@ template <typename Out, typename... In>
 class Function<Out(In...)> {
 public:
     using Impl = CallableWrapper<Out, In...>;
-
-    template<typename FunctionType, class = typename std::enable_if<std::is_pointer<FunctionType>::value && std::is_function<typename std::remove_pointer<FunctionType>::type>::value>::type>
-    Function(FunctionType f)
-        : m_callableWrapper(makeUnique<CallableWrapper<FunctionType, Out, In...>>(std::forward<FunctionType>(f))) { }
+    
+    template<typename CallableType, class = typename std::enable_if<!(std::is_pointer<CallableType>::value && std::is_function<typename std::remove_pointer<CallableType>::type>::value) && std::is_rvalue_reference<CallableType&&>::value>::type>
+    Function(CallableType&& callable)
+        : m_callableWrapper(makeUnique<CallableWrapper<CallableType, Out, In...>>(std::forward<CallableType>(callable))) { }
 
 private:
     Function(Impl* _Nonnull impl)
@@ -64,31 +71,26 @@ inline void callFunctionyThing(InputTest&& test) {
 
 // Workaround for rdar://162361370
 // (storing a WTF::Function inside a copyable, in this case ref-counted, type)
-template<typename> class FunctionContainer;
 
 template <typename Out, typename... In>
-class FunctionContainer<Out(In...)>  {
+class FunctionContainer  {
 public:
-    FunctionContainer(Function<Out(In...)>&& fn) : m_fn(fn) {}
+    
+    template<typename CallableType, class = typename std::enable_if<!(std::is_pointer<CallableType>::value && std::is_function<typename std::remove_pointer<CallableType>::type>::value) && std::is_rvalue_reference<CallableType&&>::value>::type>
+    FunctionContainer(CallableType&& callable)
+        : m_fn(Function(std::forward<CallableType>(callable))) { }
 
     Out call(In... in) const
     {
         return m_fn(std::forward<In>(in)...);
     }
+    void ref() {
+    }
+    void deref() {}
 
 private:
     Function<Out(In...)> m_fn;
-} SWIFT_SHARED_REFERENCE(funcContainerRetain, funcContainerRelease);
+} SWIFT_SHARED_REFERENCE(.ref, .deref);
 
-template <typename Out, typename... In>
-inline void funcContainerRetain(FunctionContainer<Out(In...)>* _Nonnull o) {
-    
-}
 
-template <typename Out, typename... In>
-inline void funcContainerRelease(FunctionContainer<Out(In...)>* _Nonnull o) {
-    
-}
-
-using InputTestContainer = FunctionContainer<bool (SomeInput&)>;
-
+using InputTestContainer = FunctionContainer<bool,SomeInput&>;

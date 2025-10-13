@@ -22,7 +22,14 @@ public struct FibonacciCalculator {
         guard value > 1.0 else {
             return 1.0
         }
-        
+
+        let nums: [Int32] = [0, 1];
+        takeSpan(nums.span);
+
+        let bobbins = "hello";
+        takeSpanChar(bobbins.utf8CString.span);
+        takeSpanConstChar(bobbins.utf8CString.span);
+
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)

@@ -25,6 +25,9 @@ public struct FibonacciCalculator {
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
+        
+        let _ = cxxCalculator.getRef().take();
+//        let _ = cxxCalculator.getArray2();
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
     }
 }

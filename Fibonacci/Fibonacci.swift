@@ -12,7 +12,7 @@ public struct FibonacciCalculator {
         self.printInvocation = printInvocation
     }
 
-    public func fibonacci(_ value: Double) -> Double {
+    public func fibonacci(_ value: Double, completionHandler: CountsCompletionHandler) -> Double {
         // Print the value if applicable.
         if printInvocation {
             print("[swift] fibonacci(\(value))")
@@ -22,6 +22,9 @@ public struct FibonacciCalculator {
         guard value > 1.0 else {
             return 1.0
         }
+        
+        
+        completionHandler.call(consuming: WebBackForwardListCounts(backCount: 1, forwardCount: 2));
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)

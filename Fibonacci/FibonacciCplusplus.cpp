@@ -20,7 +20,10 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     if (value <= 1.0)
         return 1.0;
     
+    Function<void(WebBackForwardListCounts&&)> fn([] (WebBackForwardListCounts&&) {});
+    auto fc = FunctionContainer<void(WebBackForwardListCounts&&)>::create(std::move(fn));
+    
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
-    return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
+    return swiftCalculator.fibonacci(value - 1.0, fc) + swiftCalculator.fibonacci(value - 2.0, fc);
 }

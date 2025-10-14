@@ -9,7 +9,8 @@ import SwiftUI
 import Fibonacci
 
 func fibonacci(_ value: Double) -> Double {
-    return FibonacciCalculator(printInvocation: true).fibonacci(value)
+    return 1;
+//    return FibonacciCalculator(printInvocation: true).fibonacci(value)
 }
 
 struct FibonacciView: View {

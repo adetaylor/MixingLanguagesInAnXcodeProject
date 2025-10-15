@@ -23,6 +23,9 @@ public struct FibonacciCalculator {
             return 1.0
         }
         
+        let t = Thingy();
+        let _ = t.getString();
+        
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)

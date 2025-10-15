@@ -24,3 +24,10 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
     return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
 }
+
+String t;
+
+const String& Thingy::getString() const {
+    // irrelevant to what APIs are made available in Swift
+    return t;
+}

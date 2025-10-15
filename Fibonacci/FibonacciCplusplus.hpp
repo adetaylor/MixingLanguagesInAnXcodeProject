@@ -8,6 +8,7 @@ The C++ API.
 #pragma once
 #include <swift/bridging>
 #include <span>
+#include <memory>
 
 class FibonacciCalculatorCplusplus {
 public:
@@ -39,7 +40,8 @@ class Thingy {
 public:
     const String& getString() const [[clang::lifetimebound]];
 private:
-    String interior;
+    RefPtr<String> interior; // OK
+//    String interior;       // not OK
 } SWIFT_SHARED_REFERENCE(thingyRef, thingyDeref);
 
 inline void thingyRef(Thingy*) {}

@@ -24,7 +24,7 @@ public struct FibonacciCalculator {
         }
         
         let t = Thingy();
-        let _ = t.getString();
+        let _ = unsafe t.getString();
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)

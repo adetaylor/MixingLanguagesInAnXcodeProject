@@ -6,6 +6,7 @@ The C++ API.
 */
 
 #pragma once
+#include <span>
 
 class FibonacciCalculatorCplusplus {
 public:
@@ -14,3 +15,14 @@ public:
 private:
     bool printInvocation;
 };
+
+
+using SpanConstChar = std::span<const char>;
+
+inline void takeSpan(const SpanConstChar& data) {}
+
+inline void makeSpan() {
+    const char data[] = {'a', 'b'};
+    SpanConstChar dataSpan{data, 2};
+    takeSpan(dataSpan);
+}

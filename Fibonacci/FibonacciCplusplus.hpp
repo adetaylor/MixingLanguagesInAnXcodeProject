@@ -7,9 +7,13 @@ The C++ API.
 
 #pragma once
 
+namespace Fibonacci {
+class FibonacciCalculator;
+};
+
 class FibonacciCalculatorCplusplus {
 public:
-    FibonacciCalculatorCplusplus(bool printInvocation);
+    FibonacciCalculatorCplusplus(bool printInvocation, Fibonacci::FibonacciCalculator* _Nonnull swiftCalculator);
     double fibonacci(double value) const;
 private:
     bool printInvocation;

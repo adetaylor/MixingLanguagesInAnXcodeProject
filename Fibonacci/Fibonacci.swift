@@ -5,11 +5,15 @@ Abstract:
 Implements the Swift API.
 */
 
-public struct FibonacciCalculator {
+public class FibonacciCalculator {
     private let printInvocation: Bool
     
     public init(printInvocation: Bool) {
         self.printInvocation = printInvocation
+    }
+    
+    public func hello() {
+        
     }
 
     public func fibonacci(_ value: Double) -> Double {
@@ -24,7 +28,7 @@ public struct FibonacciCalculator {
         }
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
-        let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
+        let cxxCalculator = unsafe FibonacciCalculatorCplusplus(printInvocation, OpaquePointer(Unmanaged.passUnretained(self).toOpaque()))
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
     }
 }

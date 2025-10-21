@@ -9,7 +9,11 @@ Implements the C++ API.
 #include <Fibonacci/Fibonacci-Swift.h>
 #include <iostream>
 
-FibonacciCalculatorCplusplus::FibonacciCalculatorCplusplus(bool printInvocation) : printInvocation(printInvocation) {}
+FibonacciCalculatorCplusplus::FibonacciCalculatorCplusplus(bool printInvocation,
+                                                        Fibonacci::FibonacciCalculator* swiftCalculator) : printInvocation(printInvocation) {
+    Fibonacci::FibonacciCalculator ref = *swiftCalculator;
+    ref.hello();
+}
 
 double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     // Print the value if applicable.

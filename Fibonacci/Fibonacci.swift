@@ -29,6 +29,6 @@ public class FibonacciCalculator {
         
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = unsafe FibonacciCalculatorCplusplus(printInvocation, OpaquePointer(Unmanaged.passUnretained(self).toOpaque()))
-        return unsafe cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
+        return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
     }
 }

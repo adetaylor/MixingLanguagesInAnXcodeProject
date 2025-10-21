@@ -11,11 +11,10 @@ Implements the C++ API.
 
 FibonacciCalculatorCplusplus::FibonacciCalculatorCplusplus(bool printInvocation,
                                                         Fibonacci::FibonacciCalculator* swiftCalculator) : printInvocation(printInvocation) {
-    m_swiftCalculator = new Fibonacci::FibonacciCalculator(*swiftCalculator);
+    m_swiftCalculator = std::make_unique<Fibonacci::FibonacciCalculator>(*swiftCalculator);
 }
 
 FibonacciCalculatorCplusplus::~FibonacciCalculatorCplusplus() {
-    delete m_swiftCalculator;
 }
 
 double FibonacciCalculatorCplusplus::fibonacci(double value) const {

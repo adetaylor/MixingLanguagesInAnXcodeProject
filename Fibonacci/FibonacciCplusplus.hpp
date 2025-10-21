@@ -8,7 +8,7 @@ The C++ API.
 #pragma once
 
 #include <memory>
-
+#include <swift/bridging>
 
 namespace Fibonacci {
 class FibonacciCalculator;
@@ -21,6 +21,10 @@ public:
     double fibonacci(double value) const;
 private:
     bool printInvocation;
-//    std::unique_ptr<Fibonacci::FibonacciCalculator> m_swiftCalculator;
-    Fibonacci::FibonacciCalculator* _Nonnull m_swiftCalculator;
-};
+    std::unique_ptr<Fibonacci::FibonacciCalculator> m_swiftCalculator;
+} SWIFT_SHARED_REFERENCE(ref, release);
+
+inline void ref(FibonacciCalculatorCplusplus* _Nonnull o) {}
+
+
+inline void release(FibonacciCalculatorCplusplus* _Nonnull o) {}

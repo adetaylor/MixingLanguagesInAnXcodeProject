@@ -5,7 +5,11 @@ Abstract:
 Implements the Swift API.
 */
 
-public struct FibonacciCalculator {
+internal import Foundation
+
+@objc(WKBackForwardList)
+@_expose(Cxx)
+public class FibonacciCalculator: NSObject {
     private let printInvocation: Bool
     
     public init(printInvocation: Bool) {

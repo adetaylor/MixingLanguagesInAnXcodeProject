@@ -11,8 +11,11 @@ Implements the C++ API.
 
 FibonacciCalculatorCplusplus::FibonacciCalculatorCplusplus(bool printInvocation,
                                                         Fibonacci::FibonacciCalculator* swiftCalculator) : printInvocation(printInvocation) {
-    Fibonacci::FibonacciCalculator ref = *swiftCalculator;
-    ref.hello();
+    m_swiftCalculator = new Fibonacci::FibonacciCalculator(*swiftCalculator);
+}
+
+FibonacciCalculatorCplusplus::~FibonacciCalculatorCplusplus() {
+    delete m_swiftCalculator;
 }
 
 double FibonacciCalculatorCplusplus::fibonacci(double value) const {
@@ -23,6 +26,8 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     // Handle the base case of the recursion.
     if (value <= 1.0)
         return 1.0;
+    
+    m_swiftCalculator->hello();
     
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);

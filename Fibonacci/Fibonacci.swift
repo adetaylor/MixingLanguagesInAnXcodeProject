@@ -5,11 +5,23 @@ Abstract:
 Implements the Swift API.
 */
 
+
+@_expose(Cxx)
+internal func internalFunc()  {
+    
+}
+
+@_expose(Cxx)
 public struct FibonacciCalculator {
     private let printInvocation: Bool
     
     public init(printInvocation: Bool) {
         self.printInvocation = printInvocation
+    }
+    
+    @_expose(Cxx)
+    internal func printSomething() {
+        
     }
 
     public func fibonacci(_ value: Double) -> Double {

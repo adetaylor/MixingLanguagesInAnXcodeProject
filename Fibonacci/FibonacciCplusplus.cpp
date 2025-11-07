@@ -20,7 +20,10 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     if (value <= 1.0)
         return 1.0;
     
+    internalFunc();
+    
     // Create the Swift `FibonacciCalculator` structure and invoke its `fibonacci` method.
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
+    swiftCalculator.printSomething();
     return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
 }

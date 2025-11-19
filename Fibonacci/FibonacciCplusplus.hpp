@@ -14,3 +14,6 @@ public:
 private:
     bool printInvocation;
 };
+
+inline void consumeCalculator(FibonacciCalculatorCplusplus&& calc) {}
+

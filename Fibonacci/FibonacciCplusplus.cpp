@@ -24,3 +24,11 @@ double FibonacciCalculatorCplusplus::fibonacci(double value) const {
     auto swiftCalculator = Fibonacci::FibonacciCalculator::init(printInvocation);
     return swiftCalculator.fibonacci(value - 1.0) + swiftCalculator.fibonacci(value - 2.0);
 }
+
+bool find_if_asan_is_enabled_non_inline() {
+#if __has_feature(address_sanitizer)
+    return true;
+#else
+    return false;
+#endif
+}

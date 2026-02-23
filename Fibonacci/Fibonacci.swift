@@ -22,7 +22,10 @@ public struct FibonacciCalculator {
         guard value > 1.0 else {
             return 1.0
         }
-        
+
+        print("[swift] ASAN is enabled in inline functions=\(find_if_asan_is_enabled_inline())")
+        print("[swift] ASAN is enabled in out-of-line functions=\(find_if_asan_is_enabled_non_inline())")
+
         // Create the C++ `FibonacciCalculatorCplusplus` class and invoke its `fibonacci` method.
         let cxxCalculator = FibonacciCalculatorCplusplus(printInvocation)
         return cxxCalculator.fibonacci(value - 1.0) + cxxCalculator.fibonacci(value - 2.0)
